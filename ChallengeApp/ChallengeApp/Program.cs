@@ -1,71 +1,102 @@
-﻿int number = 8248;
-string numberAsString = number.ToString();
-char[] letters = numberAsString.ToArray();
+﻿using ChalangeApp;
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
 
-foreach (char letter in letters)
+Employee eployee1 = new Employee(" Adam", " Kowalski", 48);
+Employee eployee2 = new Employee(" Piotr", " Walczowski", 39);
+Employee eployee3 = new Employee(" Roman", " Zając", 35);
+
+
+
+
+Console.WriteLine("NAME " + eployee1.Name);
+Console.WriteLine("SURNAME " + eployee1.Surname);
+Console.WriteLine("AGE " + eployee1.age);
+eployee1.ADDPOINT(1);
+eployee1.ADDPOINT(2);
+eployee1.ADDPOINT(3);
+eployee1.ADDPOINT(13);
+eployee1.ADDPOINT(3);
+Console.WriteLine("POINT " + eployee1.Result + "\n");
+
+Console.WriteLine("NAME " + eployee2.Name);
+Console.WriteLine("SURNAME " + eployee2.Surname);
+Console.WriteLine("AGE " + eployee2.age);
+eployee2.ADDPOINT(2);
+eployee2.ADDPOINT(3);
+eployee2.ADDPOINT(13);
+eployee2.ADDPOINT(3);
+eployee2.ADDPOINT(3);
+Console.WriteLine("POINT " + eployee2.Result + "\n");
+
+Console.WriteLine("NAME " + eployee3.Name);
+Console.WriteLine("SURNAME " + eployee3.Surname);
+Console.WriteLine("AGE " + eployee3.age);
+eployee3.ADDPOINT(22);
+eployee3.ADDPOINT(8);
+eployee3.ADDPOINT(11);
+eployee3.ADDPOINT(6);
+eployee3.ADDPOINT(1);
+Console.WriteLine("POINT " + eployee3.Result + "\n");
+
+
+
+List<Employee> emploers = new List<Employee>()
 {
-    if (letter == '0')
+    eployee1,eployee2,eployee3
+};
+int maxResult = -1;
+
+
+Employee? userWithMaxResult = null;
+
+foreach (var emp in emploers)
+{
+    if (emp.Result >= maxResult)
     {
-        counter0++;
+        userWithMaxResult = emp;
+        maxResult = userWithMaxResult.Result;
+
     }
-    else if (letter == '1')
-    {
-        counter1++;
-    }
-    else if (letter == '2')
-    {
-        counter2++;
-    }
-    else if (letter == '3')
-    {
-        counter3++;
-    }
-    else if (letter == '4')
-    {
-        counter4++;
-    }
-    else if (letter == '5')
-    {
-        counter5++;
-    }
-    else if (letter == '6')
-    {
-        counter6++;
-    }
-    else if (letter == '7')
-    {
-        counter7++;
-    }
-    else if (letter == '8')
-    {
-        counter8++;
-    }
-    else if (letter == '9')
-    {
-        counter9++;
-    }
+
 }
 
 
-Console.WriteLine(number);
-Console.WriteLine("0 =>" + counter0);
-Console.WriteLine("1 =>" + counter1);
-Console.WriteLine("2 =>" + counter2);
-Console.WriteLine("3 =>" + counter3);
-Console.WriteLine("4 =>" + counter4);
-Console.WriteLine("5 =>" + counter5);
-Console.WriteLine("6 =>" + counter6);
-Console.WriteLine("7 =>" + counter7);
-Console.WriteLine("8 =>" + counter8);
-Console.WriteLine("9 =>" + counter9);
+if (eployee1.Result == maxResult)
+{
+
+    Console.WriteLine("\t" + " najwiecej punktow mają ");
+    Console.WriteLine(eployee1.Name); ;
+    Console.WriteLine(eployee1.Surname);
+    Console.WriteLine(eployee1.age);
+    Console.WriteLine(eployee1.Result);
+    if (eployee1 != userWithMaxResult)
+    {
+        Console.WriteLine(userWithMaxResult.Name);
+        Console.WriteLine(userWithMaxResult.Surname);
+        Console.WriteLine(userWithMaxResult.age);
+        Console.WriteLine(userWithMaxResult.Result);
+    }
+}
+else if (eployee2.Result == eployee3.Result)
+{
+    Console.WriteLine("\t" + " najwiecej punktow mają ");
+    Console.WriteLine(eployee2.Name); ;
+    Console.WriteLine(eployee2.Surname);
+    Console.WriteLine(eployee2.age);
+    Console.WriteLine(eployee2.Result);
+
+    Console.WriteLine("\t" + " I równierz ");
+    Console.WriteLine(eployee3.Name); ;
+    Console.WriteLine(eployee3.Surname);
+    Console.WriteLine(eployee3.age);
+    Console.WriteLine(eployee3.Result);
+
+}
+else
+{
+    Console.WriteLine("\t" + " najwiecej punktow ma ");
+    Console.WriteLine(userWithMaxResult.Name);
+    Console.WriteLine(userWithMaxResult.Surname);
+    Console.WriteLine(userWithMaxResult.age);
+    Console.WriteLine(userWithMaxResult.Result);
+}
